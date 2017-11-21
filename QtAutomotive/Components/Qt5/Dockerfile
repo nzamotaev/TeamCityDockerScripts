@@ -14,7 +14,7 @@ RUN echo "Acquire::http {No-Cache=True;};" > /etc/apt/apt.conf.d/no-cache
 RUN echo $'#!/bin/sh\nexit 101' > /usr/sbin/policy-rc.d 
 RUN chmod +x /usr/sbin/policy-rc.d 
 
-RUN sed -i 's/^# deb-src /deb-src /g' /etc/apt/sources.list
+RUN sed -i 's/^# deb-src /deb-src /g;s/archive.ubuntu.com/10.9.0.1:3142\/archive.ubuntu.com/g' /etc/apt/sources.list
  
 RUN apt-get update && \ 
     apt-get -y build-dep qt5-default && \
