@@ -1,6 +1,7 @@
 #!/bin/bash
 # $1 - teamcity temp dir
 # $2 - teamcity source checkout dir
+set -e 
 FootprintFile=.image
 ContainerName=Qt5build
 ImageName=Qt5build
@@ -10,7 +11,7 @@ ARGS=$@
 
 if [ ! -f $FootprintFile ]; then
     echo "##teamcity[blockOpened name='Building docker image']"
-    docker build -t $ImageName .
+    docker build -t $ImageName . 
     touch $FootprintFile
     echo "##teamcity[blockClosed name='Building docker image']"
 fi
