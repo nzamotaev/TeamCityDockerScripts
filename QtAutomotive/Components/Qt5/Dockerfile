@@ -2,19 +2,19 @@ FROM ubuntu:xenial
 MAINTAINER Nikolay Zamotaev <nzamotaev@luxoft.com> 
 ENV DEBIAN_FRONTEND noninteractive
 
-RUN apt-get clean && apt-get update && apt-get install -y locales apt-utils
+RUN sed -i 's/^# deb-src /deb-src /g;s/archive.ubuntu.com/10.9.0.1:3142\/archive.ubuntu.com/g' /etc/apt/sources.list
+RUN echo "force-unsafe-io" > /etc/dpkg/dpkg.cfg.d/02apt-speedup 
+RUN echo "Acquire::http {No-Cache=True;};" > /etc/apt/apt.conf.d/no-cache 
+RUN apt-get clean && apt-get update && apt-get install -y locales
+RUN apt-get update && apt-get install -y --no-install-recommends apt-utils
 RUN locale-gen en_US.UTF-8 
 ENV LANG en_US.UTF-8 
 ENV LANGUAGE en_US:en 
 ENV LC_ALL en_US.UTF-8 
  
-RUN echo "force-unsafe-io" > /etc/dpkg/dpkg.cfg.d/02apt-speedup 
-RUN echo "Acquire::http {No-Cache=True;};" > /etc/apt/apt.conf.d/no-cache 
- 
 RUN echo $'#!/bin/sh\nexit 101' > /usr/sbin/policy-rc.d 
 RUN chmod +x /usr/sbin/policy-rc.d 
 
-RUN sed -i 's/^# deb-src /deb-src /g;s/archive.ubuntu.com/10.9.0.1:3142\/archive.ubuntu.com/g' /etc/apt/sources.list
  
 RUN apt-get update && \ 
     apt-get -y build-dep qt5-default && \
