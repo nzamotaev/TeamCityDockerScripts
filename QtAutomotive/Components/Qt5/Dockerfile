@@ -12,7 +12,7 @@ ENV LANG en_US.UTF-8
 ENV LANGUAGE en_US:en 
 ENV LC_ALL en_US.UTF-8 
  
-RUN echo -e '#!/bin/bash\nexit 101' > /usr/sbin/policy-rc.d 
+RUN echo "exit 101" > /usr/sbin/policy-rc.d 
 RUN chmod +x /usr/sbin/policy-rc.d 
 
  
