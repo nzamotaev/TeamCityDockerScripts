@@ -30,5 +30,4 @@ RUN apt-get update && \
         gperf bison libwayland-dev libwayland-egl1-mesa \
         libwayland-server0 libgles2-mesa-dev libxkbcommon-dev \
         cmake zlib1g-dev libdbus-glib-1-dev \
-        git-core && \ 
-    rm -rf /var/lib/apt/lists/*
+        git-core  
