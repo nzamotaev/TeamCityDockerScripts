@@ -5,7 +5,7 @@ set -e
 FootprintFile=.image
 ContainerName=qt5build
 ImageName=qt5build
-Volumes="-v $1:/opt/build -v $2:/opt/checkout"
+Volumes="-v $1:/opt/build -v $2:/opt/checkout -v `pwd`:/opt/scripts"
 shift 2
 ARGS=$@
 
@@ -16,13 +16,15 @@ if [ ! -f $FootprintFile ]; then
     echo "##teamcity[blockClosed name='Building docker image']"
 fi
 
+set +e
+
 docker ps -a | grep -q $ContainerName > /dev/null
 if [[ $? -eq 0 ]]; then
     echo "##teamcity[blockOpened name='Remove docker container']"
-    docker rm $ContainerName 2>/dev/null
+    docker rm $ContainerName 
     echo "##teamcity[blockClosed name='Remove docker container']"
 fi
 
 echo "##teamcity[blockOpened name='Build process']"
-docker run -t --name="$ContainerName" $Volumes $ImageName /bin/bash -c $ARGS
+docker run -t --name="$ContainerName" $Volumes $ImageName /bin/bash -c "$ARGS"
 echo "##teamcity[blockClosed name='Build process']"

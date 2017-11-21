@@ -2,6 +2,8 @@
 # $2 - "-debug/"
 # $1 - where to install
 set -e
+cd /opt/checkout
+ls -la
 git submodule foreach --recursive git reset --hard
 ./init-repository -f --module-subset=default,-qtwebkit,-qtwebkit-examples,-qtwebengine
 mkdir -p /opt/build/_install_
