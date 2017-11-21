@@ -29,5 +29,5 @@ if [[ $? -eq 0 ]]; then
 fi
 
 echo "##teamcity[blockOpened name='Build process']"
-docker run -t --name="$ContainerName" $Volumes $ImageName /bin/bash -c "$ARGS"
+docker run --name="$ContainerName" $Volumes $ImageName /bin/bash -c "$ARGS"
 echo "##teamcity[blockClosed name='Build process']"
