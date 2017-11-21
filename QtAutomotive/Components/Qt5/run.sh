@@ -2,8 +2,8 @@
 # $1 - teamcity temp dir
 # $2 - teamcity source checkout dir
 FootprintFile=.image
-ContainerName=Qt5_build
-ImageName=Qt5_build
+ContainerName=Qt5build
+ImageName=Qt5build
 Volumes="-v $1:/opt/build -v $2:/opt/checkout"
 shift 2
 ARGS=$@
