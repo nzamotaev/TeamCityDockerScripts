@@ -15,7 +15,7 @@ RUN chmod +x /usr/sbin/policy-rc.d
  
 RUN apt-get update && \ 
     apt-get -y build-dep qt5-default && \
-    apt-get install -y icecc --no-install-recommends &&
+    apt-get install -y icecc --no-install-recommends && \
     apt-get -y install \
         libxcb-xinerama0-dev \
         '^libxcb.*-dev' libx11-xcb-dev libglu1-mesa-dev \
