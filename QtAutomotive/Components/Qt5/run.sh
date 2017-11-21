@@ -5,7 +5,10 @@ set -e
 FootprintFile=.image
 ContainerName=qt5build
 ImageName=qt5build
-Volumes="-v $1:/opt/build -v $2:/opt/checkout -v `pwd`:/opt/scripts"
+Build=`readlink -f $1`
+Checkout=`readlink -f $2`
+ScriptDir=`readlink -f \`pwd\``
+Volumes="-v ${Build}:/opt/build -v ${Checkout}:/opt/checkout -v ${ScriptDir}:/opt/scripts"
 shift 2
 ARGS=$@
 
