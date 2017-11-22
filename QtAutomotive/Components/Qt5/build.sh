@@ -7,6 +7,8 @@ git submodule foreach --recursive git reset --hard
 mkdir -p /opt/build/_install_
 mkdir -p /opt/build/_build_
 cd /opt/build/_build_
+export CCACHE_PREFIX=icecc
+export PATH=/usr/lib/ccache:$PATH
 /opt/checkout/configure $2 -opensource -confirm-license \
         -nomake examples -nomake tests -opengl es2 \
         -prefix /opt/qt/$1
