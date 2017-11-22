@@ -14,7 +14,7 @@ ENV LC_ALL en_US.UTF-8
  
 RUN echo "exit 101" > /usr/sbin/policy-rc.d 
 RUN chmod +x /usr/sbin/policy-rc.d 
-
+RUN mkdir /.ccache && chmod 777 /.ccache 
  
 RUN apt-get update && \ 
     apt-get -y build-dep qt5-default && \
