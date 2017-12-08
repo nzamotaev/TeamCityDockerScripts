@@ -2,7 +2,10 @@
 # $2 - "-debug/"
 # $1 - where to install
 cd /opt
-tar xv /opt/checkout/qt/qt.tar.gz
+ls -la /opt/checkout/qt/
+ls -la /opt/checkout/
+ls -la /opt/
+tar xfv /opt/checkout/qt/qt.tar.gz
 cd /opt/checkout/sources/
 export CCACHE_PREFIX=icecc
 export PATH=/usr/lib/ccache:$PATH
