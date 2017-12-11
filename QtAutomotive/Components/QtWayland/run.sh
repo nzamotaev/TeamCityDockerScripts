@@ -6,7 +6,7 @@ ImageName=qt5waylandbuild
 Build=`readlink -f $1`
 Checkout=`readlink -f $2`
 ScriptDir=`readlink -f \`pwd\``
-Volumes="-v ${Build}:/opt/build -v ${Checkout}:/opt/checkout -v ${ScriptDir}:/opt/scripts -v /var/run/icecc:/var/run/icecc"
+Volumes="-v ${Build}:/opt/build -v ${Checkout}:/opt/checkout -v ${ScriptDir}:/opt/scripts -v /var/run/icecc:/var/run/icecc -v ${Checkout}/qt/opt/qt/:/opt/qt"
 
 echo "##teamcity[blockOpened name='Building docker image']"
 docker build -t $ImageName . 
