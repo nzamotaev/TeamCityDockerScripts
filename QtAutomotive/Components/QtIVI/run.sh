@@ -1,8 +1,8 @@
 #!/bin/bash
 # $1 - teamcity temp dir
 # $2 - teamcity source checkout dir
-ContainerName=qt5creator
-ImageName=qt5creator
+ContainerName=qt5ivi
+ImageName=qt5ivi
 Build=`readlink -f $1`
 Checkout=`readlink -f $2`
 ScriptDir=`readlink -f \`pwd\``
