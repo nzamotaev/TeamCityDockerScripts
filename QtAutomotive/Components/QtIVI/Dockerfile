@@ -34,5 +34,5 @@ RUN apt-get update && \
 RUN chmod a+rwX /opt
 RUN apt-get -y install libtag1-dev python3-dev python3-virtualenv
 COPY dlt/dlt.tar.gz /tmp/
-RUN tar xvf -C / /tmp/dlt.tar.gz
+RUN tar xvf /tmp/dlt.tar.gz -C /
 
