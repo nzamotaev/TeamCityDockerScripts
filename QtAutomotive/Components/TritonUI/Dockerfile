@@ -39,6 +39,6 @@ COPY qtivi/qtivi.tar.gz /tmp/
 RUN tar xvf /tmp/qtivi.tar.gz -C /
 COPY qtwayland/qtwayland.tar.gz /tmp/
 RUN tar xvf /tmp/qtwayland.tar.gz -C /
-COPY qtappman.tar.gz /tmp/
+COPY qtappman/qtappman.tar.gz /tmp/
 RUN tar xvf /tmp/qtappman.tar.gz -C /
 
