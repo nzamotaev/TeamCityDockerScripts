@@ -32,7 +32,7 @@ RUN apt-get update && \
         cmake zlib1g-dev libdbus-glib-1-dev \
         git-core
 RUN chmod a+rwX /opt
-RUN apt-get -y install libtag1-dev python3-dev python3-virtualenv
+RUN apt-get update && apt-get -y install libtag1-dev python3-dev python3-virtualenv
 COPY dlt/dlt.tar.gz /tmp/
 RUN tar xvf /tmp/dlt.tar.gz -C /
 
