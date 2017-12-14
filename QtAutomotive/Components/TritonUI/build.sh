@@ -5,6 +5,6 @@ cd /opt/checkout/sources/
 export CCACHE_PREFIX=icecc
 export PATH=/usr/lib/ccache:$PATH
 QMAKE=`find /opt/qt -name qmake`
-$QMAKE INSTALL_PREFIX=/opt/build/_install_
+$QMAKE 
 make -j 5
-make install
+make install INSTALL_ROOT=/opt/build/_install_
