@@ -4,6 +4,7 @@
 cd /opt/checkout
 git submodule foreach --recursive git reset --hard
 ./init-repository -f --module-subset=default,-qtwebkit,-qtwebkit-examples,-qtwebengine
+echo "##teamcity[buildNumber '`git describe --abbrev=7`']"
 mkdir -p /opt/build/_install_
 mkdir -p /opt/build/_build_
 cd /opt/build/_build_

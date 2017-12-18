@@ -4,7 +4,7 @@
 cd /opt/checkout/sources/
 export CCACHE_PREFIX=icecc
 export PATH=/usr/lib/ccache:$PATH
-ls -l /opt/qt
+echo "##teamcity[buildNumber '`git describe --abbrev=7`']"
 QMAKE=`find /opt/qt -name qmake`
 $QMAKE
 make -j 10
