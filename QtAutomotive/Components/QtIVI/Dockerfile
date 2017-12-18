@@ -33,6 +33,8 @@ RUN apt-get update && \
         git-core
 RUN chmod a+rwX /opt
 RUN apt-get update && apt-get -y install libtag1-dev python3-dev python3-virtualenv
+COPY qt/qt.tar.gz /tmp/
+RUN tar xvf /tmp/qt.tar.gz -C /
 COPY dlt/dlt.tar.gz /tmp/
 RUN tar xvf /tmp/dlt.tar.gz -C /
 

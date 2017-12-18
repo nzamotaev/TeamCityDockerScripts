@@ -31,4 +31,6 @@ RUN apt-get update && \
         libwayland-server0 libgles2-mesa-dev libxkbcommon-dev \
         cmake zlib1g-dev libdbus-glib-1-dev \
         git-core
-RUN chmod a+rwX /opt 
+RUN chmod a+rwX /opt
+COPY qt/qt.tar.gz /tmp/
+RUN tar xvf /tmp/qt.tar.gz -C /
