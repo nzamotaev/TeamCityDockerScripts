@@ -43,4 +43,5 @@ COPY qtwayland/qtwayland.tar.gz /tmp/
 RUN tar xvf /tmp/qtwayland.tar.gz -C /
 COPY qtappman/qtappman.tar.gz /tmp/
 RUN tar xvf /tmp/qtappman.tar.gz -C /
-
+COPY here/sdk.tar.gz /tmp/
+RUN tar xvf /tmp/sdk.tar.gz -C /opt
