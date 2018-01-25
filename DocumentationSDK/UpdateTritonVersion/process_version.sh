@@ -1,6 +1,6 @@
 #!/bin/bash
 set -e
-test "x$1" == "x"
+test "x$1" != "x"
 echo Triton revision: %system.build.vcs.number.QtAutomotive_Components_HttpsGitLfsQtIoGerritTritonUiGit%
 git clone git@git.pelagicore.net:uxteam/meta-qtas-demo.git
 git clone git@git.pelagicore.net:uxteam/qtas-demo-manifest.git
