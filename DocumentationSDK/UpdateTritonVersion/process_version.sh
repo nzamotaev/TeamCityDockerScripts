@@ -47,7 +47,7 @@ if [ "$META_PUSH" == "1" ]; then
     popd
 fi
 
-if [ "$MANIFEST_PUSH" == "1"]; then
+if [ "$MANIFEST_PUSH" == "1" ]; then
     pushd qtas-demo-manifest
     git push
     popd
