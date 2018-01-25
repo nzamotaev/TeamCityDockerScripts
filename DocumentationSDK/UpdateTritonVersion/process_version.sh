@@ -14,7 +14,7 @@ git config user.name "TeamCity server"
 FILENAME="`find ./ -name triton-ui_git.bb`"
 echo BB file: $FILENAME
 test -f "$FILENAME" 
-sed 's/SRCREV *= *".*"/SRCREV = "%system.build.vcs.number.QtAutomotive_Components_HttpsGitLfsQtIoGerritTritonUiGit%"/' -i "$FILENAME"
+sed "s/SRCREV *= *\".*\"/SRCREV = \"$1\"/" -i "$FILENAME"
 T=`git diff`
 if [ "x$T" == "x" ];then
     echo "No change to meta-qtas-demo"
