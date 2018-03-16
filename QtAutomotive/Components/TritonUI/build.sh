@@ -9,6 +9,6 @@ echo "Pri file:"
 find /opt/qt -name qt_lib_appman_main_private.pri
 echo "Qmake location"
 echo $QMAKE
-$QMAKE HERE_SDK=/opt/carlo_sdk/ ./triton-ui.pro
+$QMAKE HERE_SDK=/opt/carlo_sdk/ 
 make -j 5
 make install INSTALL_ROOT=/opt/build/_install_
