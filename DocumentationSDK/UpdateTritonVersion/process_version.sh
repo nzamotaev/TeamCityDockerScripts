@@ -9,7 +9,7 @@ META_PUSH=0
 pushd meta-qtas-demo
 git config user.email "nzamotaev@luxoft.com"
 git config user.name "TeamCity server"
-FILENAME="`find ./ -name triton-ui_git.bb`"
+FILENAME="`find ./ -name neptune3-ui_git.bb`"
 echo BB file: $FILENAME
 test -f "$FILENAME" 
 sed "s/SRCREV *= *\".*\"/SRCREV = \"$1\"/" -i "$FILENAME"
