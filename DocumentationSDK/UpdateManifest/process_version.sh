@@ -15,7 +15,12 @@ if [ "x$T" == "x" ];then
     echo "No change to manifests"
 else
     echo "Comitting changes"
-    git commit -m "Automatic update to the latest version of meta-qtas-demo" pelux.xml
+    (echo "Automatic update to the latest version of meta-qtas-demo"
+     echo ""
+     echo ""
+     echo "Co-authored-by: Svetlana Abramenkova <sabramenkova@luxoft.com>"
+     echo "Co-authored-by: Vladimir Minenko <vminenko@luxoft.com>"
+    )|git commit -F - pelux.xml
     MANIFEST_PUSH=1
 fi
 popd
