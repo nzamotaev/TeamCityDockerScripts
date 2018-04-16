@@ -18,7 +18,7 @@ if [ "x$T" == "x" ];then
     echo "No change to meta-qtas-demo"
 else
     echo "Comitting changes"
-    git commit -m "Triton: Automatic update to the latest version of Triton" "$FILENAME"
+    git commit -m "Neptune3: Automatic update to the latest version of Neptune3-UI" "$FILENAME"
     META_PUSH=1
 fi
 popd
