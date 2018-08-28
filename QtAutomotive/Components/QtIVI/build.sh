@@ -1,7 +1,7 @@
 #!/bin/bash
 # $2 - "-debug/"
 # $1 - where to install
-/etc/init.d/icecc start
+/etc/init.d/iceccd start
 cd /opt/checkout/sources/
 export CCACHE_PREFIX=icecc
 export PATH=/usr/lib/ccache:$PATH
