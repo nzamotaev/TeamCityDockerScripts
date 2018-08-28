@@ -32,5 +32,7 @@ RUN apt-get update && \
         cmake zlib1g-dev libdbus-glib-1-dev \
         git-core
 RUN chmod a+rwX /opt
+COPY icecc.conf /etc/icecc/icecc.conf
+RUN mkdir -m 777 /tmp/icecc
 COPY qt/qt.tar.gz /tmp/
 RUN tar xvf /tmp/qt.tar.gz -C /

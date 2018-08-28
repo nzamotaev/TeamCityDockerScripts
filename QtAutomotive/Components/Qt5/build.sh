@@ -1,6 +1,7 @@
 #!/bin/bash
 # $2 - "-debug/"
 # $1 - where to install
+/etc/init.d/icecc start
 cd /opt/checkout
 git submodule foreach --recursive git reset --hard
 ./init-repository -f --module-subset=default,-qtwebkit,-qtwebkit-examples,-qtwebengine
