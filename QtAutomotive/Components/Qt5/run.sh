@@ -17,5 +17,5 @@ docker rm -f $ContainerName
 echo "##teamcity[blockClosed name='Remove docker container']"
 
 echo "##teamcity[blockOpened name='Build process']"
-docker run -u `id -u $USER` --name="$ContainerName" $Volumes $ImageName /bin/bash -c "/opt/scripts/build.sh $3 $4"
+docker run --network="host" -u `id -u $USER` --name="$ContainerName" $Volumes $ImageName /bin/bash -c "/opt/scripts/build.sh $3 $4"
 echo "##teamcity[blockClosed name='Build process']"

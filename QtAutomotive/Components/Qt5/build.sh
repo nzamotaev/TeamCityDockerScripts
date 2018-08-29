@@ -1,7 +1,6 @@
 #!/bin/bash
 # $2 - "-debug/"
 # $1 - where to install
-/usr/sbin/iceccd -d --no-remote -l /tmp/iceccd.log --nice 5 -s 192.168.5.1 -b /tmp/icecc -m 0
 cd /opt/checkout
 git submodule foreach --recursive git reset --hard
 ./init-repository -f --module-subset=default,-qtwebkit,-qtwebkit-examples,-qtwebengine
