@@ -33,3 +33,4 @@ RUN apt-get update && \
         git-core  
 RUN chmod a+rwX /opt
 ENTRYPOINT iceccd -v --no-remote --nice 5 -s 192.168.5.1 -m 0
+EXPOSE 10245 8765/TCP 8765/UDP 8766
