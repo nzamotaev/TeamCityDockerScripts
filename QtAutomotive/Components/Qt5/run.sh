@@ -6,7 +6,7 @@ ImageName=qt5build
 Build=`readlink -f $1`
 Checkout=`readlink -f $2`
 ScriptDir=`readlink -f \`pwd\``
-Volumes="-v ${Build}:/opt/build -v ${Checkout}:/opt/checkout -v ${ScriptDir}:/opt/scripts -v /var/run/icecc:/var/run/icecc"
+Volumes="-v ${Build}:/opt/build -v ${Checkout}:/opt/checkout -v ${ScriptDir}:/opt/scripts"
 
 echo "##teamcity[blockOpened name='Building docker image']"
 docker build -t $ImageName . 
