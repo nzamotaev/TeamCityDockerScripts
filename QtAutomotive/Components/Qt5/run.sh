@@ -16,6 +16,15 @@ echo "##teamcity[blockOpened name='Remove docker container']"
 docker rm -f $ContainerName 
 echo "##teamcity[blockClosed name='Remove docker container']"
 
-echo "##teamcity[blockOpened name='Build process']"
-docker run -u `id -u $USER` --name="$ContainerName" $Volumes $ImageName /bin/bash -c "/opt/scripts/build.sh $3 $4"
-echo "##teamcity[blockClosed name='Build process']"
+echo "##teamcity[blockOpened name='IceCC start']"
+#docker run --name="$ContainerName" $Volumes $ImageName /bin/bash -c "/opt/scripts/build.sh $3 $4"
+docker run -d --name="$ContainerName" $Volumes $ImageName
+echo "##teamcity[blockClosed name='IceCC start']"
+
+echo "##teamcity[blockOpened name='Build start']"
+docker exec -u `id -u $USER` "$ContainerName" /opt/scripts/build.sh $3 $4
+echo "##teamcity[blockClosed name='Build start']"
+
+echo "##teamcity[blockOpened name='Stopping IceCC']"
+docker stop "$ContainerName"
+echo "##teamcity[blockClosed name='Stopping IceCC']"

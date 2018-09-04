@@ -32,4 +32,4 @@ RUN apt-get update && \
         cmake zlib1g-dev libdbus-glib-1-dev \
         git-core  
 RUN chmod a+rwX /opt
-RUN mkdir -m 777 /tmp/icecc
+ENTRYPOINT iceccd -v --no-remote --nice 5 -s 192.168.5.1 -m 0
