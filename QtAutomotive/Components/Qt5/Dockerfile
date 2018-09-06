@@ -31,6 +31,3 @@ RUN apt-get update && \
         libwayland-server0 libgles2-mesa-dev libxkbcommon-dev \
         cmake zlib1g-dev libdbus-glib-1-dev \
         git-core  
-RUN chmod a+rwX /opt
-ENTRYPOINT iceccd -v --no-remote --nice 5 -s 192.168.5.1 -m 0
-EXPOSE 10245 8765/TCP 8765/UDP 8766

@@ -32,7 +32,6 @@ RUN apt-get update && \
         cmake zlib1g-dev libdbus-glib-1-dev \
         git-core
 RUN chmod a+rwX /opt
-RUN mkdir -m 777 /tmp/icecc
 RUN apt-get update && apt-get -y install libtag1-dev python3-dev python3-virtualenv
 COPY qt/qt.tar.gz /tmp/
 RUN tar xvf /tmp/qt.tar.gz -C /
