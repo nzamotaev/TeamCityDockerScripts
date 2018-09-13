@@ -9,7 +9,8 @@ ScriptDir=`readlink -f \`pwd\``
 Volumes="-v ${Build}:/opt/build -v ${Checkout}:/opt/checkout -v ${ScriptDir}:/opt/scripts"
 
 echo "##teamcity[blockOpened name='Building docker image']"
-docker build -t $ImageName -f "${2}/Dockerfile"
+cp ${2}/Dockerfile ./
+docker build -t $ImageName .
 echo "##teamcity[blockClosed name='Building docker image']"
 
 echo "##teamcity[blockOpened name='Remove docker container']"
