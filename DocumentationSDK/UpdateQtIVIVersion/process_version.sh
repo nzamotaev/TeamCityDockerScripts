@@ -15,7 +15,7 @@ test -f "$FILENAME"
 
 OLDHASH=`grep SRCREV_qtivi $FILENAME|awk -F= '{print $2}'|sed 's/^[ \"]*//;s/[\" ]*$//'`
 NEWHASH=$1
-(cd "$2";git log ${OLDHASH}..${NEWHASH} )
+(echo "Changelog: ";cd "$2";git log ${OLDHASH}..${NEWHASH} )
 
 sed "s/SRCREV_qtivi *= *\".*\"/SRCREV_qtivi = \"$1\"/" -i "$FILENAME"
 T=`git diff`
