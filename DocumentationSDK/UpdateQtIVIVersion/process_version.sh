@@ -15,7 +15,6 @@ test -f "$FILENAME"
 
 OLDHASH=`grep SRCREV_qtivi $FILENAME|awk -F= '{print $2}'|sed 's/^[ \"]*//;s/[\" ]*$//'`
 NEWHASH=$1
-(echo "Changelog: ";cd "$2";git log ${OLDHASH}..${NEWHASH} )
 
 sed "s/SRCREV_qtivi *= *\".*\"/SRCREV_qtivi = \"$1\"/" -i "$FILENAME"
 T=`git diff`
@@ -23,7 +22,11 @@ if [ "x$T" == "x" ];then
     echo "No change to meta-qtas-demo"
 else
     echo "Comitting changes"
-    git commit -m "Qt IVI: Automatic update to the latest version of Qt IVI" "$FILENAME"
+    (   echo "Qt IVI: Automatic update to the latest version of Qt IVI"
+        echo "Changes:"
+        cd "$2"
+        git log --pretty=format:"%h%x09%an%x09%ad%x09%s" ${OLDHASH}..${NEWHASH} 
+    ) | git commit -F - "$FILENAME"
     META_PUSH=1
 fi
 popd
