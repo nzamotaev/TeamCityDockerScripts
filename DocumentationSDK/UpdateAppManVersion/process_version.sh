@@ -12,13 +12,21 @@ git config user.name "TeamCity server"
 FILENAME="`find ./ -name qtapplicationmanager_git.bbappend`"
 echo BB file: $FILENAME
 test -f "$FILENAME" 
+
+OLDHASH=`grep SRCREV $FILENAME|awk -F= '{print $2}'|sed 's/^[ \"]*//;s/[\" ]*$//'`
+NEWHASH=$1
+
 sed "s/SRCREV *= *\".*\"/SRCREV = \"$1\"/" -i "$FILENAME"
 T=`git diff`
 if [ "x$T" == "x" ];then
     echo "No change to meta-qtas-demo"
 else
     echo "Comitting changes"
-    git commit -m "Qt Application Manager: Automatic update to the latest version of AppMan" "$FILENAME"
+    (   echo "Qt Application Manager: Automatic update to the latest version of AppMan"
+        echo "Changes:"
+        cd "$2"
+        git log --pretty=format:"%h%x09%an%x09%ad%x09%s" ${OLDHASH}..${NEWHASH} 
+    ) | git commit -F - "$FILENAME"
     META_PUSH=1
 fi
 popd

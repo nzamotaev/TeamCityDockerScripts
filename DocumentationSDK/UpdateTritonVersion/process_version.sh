@@ -12,13 +12,21 @@ git config user.name "TeamCity server"
 FILENAME="`find ./ -name neptune3-ui_git.bb`"
 echo BB file: $FILENAME
 test -f "$FILENAME" 
+
+OLDHASH=`grep SRCREV $FILENAME|awk -F= '{print $2}'|sed 's/^[ \"]*//;s/[\" ]*$//'`
+NEWHASH=$1
+
 sed "s/SRCREV *= *\".*\"/SRCREV = \"$1\"/" -i "$FILENAME"
 T=`git diff`
 if [ "x$T" == "x" ];then
     echo "No change to meta-qtas-demo"
 else
     echo "Comitting changes"
-    git commit -m "Neptune3: Automatic update to the latest version of Neptune3-UI" "$FILENAME"
+    (   echo "Neptune3: Automatic update to the latest version of Neptune3-UI"
+        echo "Changes:"
+        cd "$2"
+        git log --pretty=format:"%h%x09%an%x09%ad%x09%s" ${OLDHASH}..${NEWHASH} 
+    ) | git commit -F - "$FILENAME"
     META_PUSH=1
 fi
 popd
@@ -28,3 +36,4 @@ if [ "$META_PUSH" == "1" ]; then
     git push
     popd
 fi
+
