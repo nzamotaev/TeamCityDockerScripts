@@ -15,6 +15,7 @@ for atype in root.findall('project'):
     remote   = atype.get('remote')
     name     = atype.get('name')
     if remote == "pcore" and name == "uxteam/meta-qtas-demo":
+        print(atype.attrib['revision'])
         atype.attrib['revision']=revision
 
 doc.write(filename, xml_declaration=True)
