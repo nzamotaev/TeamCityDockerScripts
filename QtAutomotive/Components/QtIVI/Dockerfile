@@ -37,4 +37,4 @@ COPY qt/qt.tar.gz /tmp/
 RUN tar xvf /tmp/qt.tar.gz -C /
 COPY dlt/dlt.tar.gz /tmp/
 RUN tar xvf /tmp/dlt.tar.gz -C /
-
+RUN mkdir -p /opt/qt/auto/ && chmod 777 -R /opt/qt/auto/
