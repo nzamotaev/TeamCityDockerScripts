@@ -32,7 +32,7 @@ RUN apt-get update && \
         cmake zlib1g-dev libdbus-glib-1-dev \
         git-core
 RUN chmod a+rwX /opt
-RUN apt-get update && apt-get -y install libtag1-dev python3-dev python3-virtualenv xvfb
+RUN apt-get update && apt-get -y install libtag1-dev python3-dev python3-virtualenv xvfb lcov
 COPY qt/qt.tar.gz /tmp/
 RUN tar xvf /tmp/qt.tar.gz -C /
 COPY dlt/dlt.tar.gz /tmp/
