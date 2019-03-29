@@ -18,6 +18,6 @@ echo "##teamcity[blockClosed name='Install']"
 echo "##teamcity[blockOpened name='Check-coverage']"
 Xvfb :1 -ac -screen 0 1024x758x24 &
 export DISPLAY=:1
-make check-coverage TESTARGS="-o -,txt -o result.xml,xml"
+make check-coverage TESTARGS="-o -,txt -o result.xml,xml -teamcity"
 kill %1
 echo "##teamcity[blockClosed name='Check-coverage']"
