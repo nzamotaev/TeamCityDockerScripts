@@ -5,7 +5,7 @@ git clone git@git.pelagicore.net:uxteam/qtas-demo-manifest.git
 MANIFEST_PUSH=0
 
 pushd qtas-demo-manifest
-../TeamCityDockerScripts/DocumentationSDK/SyncManifestWithPelux/sync.py pelux.xml "../$1/pelux.xml"
+../TeamCityDockerScripts/DocumentationSDK/SyncManifestWithPelux/sync.py pelux.xml "$1/pelux.xml"
 git config user.email "nzamotaev@luxoft.com"
 git config user.name "TeamCity server"
 T=`git diff`
