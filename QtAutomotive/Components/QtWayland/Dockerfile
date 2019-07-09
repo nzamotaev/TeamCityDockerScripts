@@ -30,7 +30,7 @@ RUN apt-get update && \
         gperf bison libwayland-dev libwayland-egl1-mesa \
         libwayland-server0 libgles2-mesa-dev libxkbcommon-dev \
         cmake zlib1g-dev libdbus-glib-1-dev \
-        git-core
+        git-core llvm-dev libclang-dev
 RUN chmod a+rwX /opt
 COPY qt/qt.tar.gz /tmp/
 RUN tar xvf /tmp/qt.tar.gz -C /

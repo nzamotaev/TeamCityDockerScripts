@@ -30,7 +30,7 @@ RUN apt-get update && \
         gperf bison libwayland-dev libwayland-egl1-mesa \
         libwayland-server0 libgles2-mesa-dev libxkbcommon-dev \
         cmake zlib1g-dev libdbus-glib-1-dev \
-        git-core
+        git-core llvm-dev libclang-dev
 RUN chmod a+rwX /opt
 RUN apt-get update && apt-get -y install libtag1-dev python3-dev python3-virtualenv xvfb lcov
 COPY qt/qt.tar.gz /tmp/
