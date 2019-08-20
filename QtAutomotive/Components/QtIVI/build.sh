@@ -1,6 +1,7 @@
 #!/bin/bash
 # $2 - "-debug/"
 # $1 - where to install
+set -e 
 cd /opt/checkout/sources/
 export CCACHE_PREFIX=icecc
 export PATH=/usr/lib/ccache:$PATH
