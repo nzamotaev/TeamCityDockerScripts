@@ -2,11 +2,12 @@
 set -e
 test "x$1" != "x"
 echo Triton revision: "$1"
-git clone git@git.pelagicore.net:uxteam/meta-qtas-demo.git
+#git clone git@git.pelagicore.net:uxteam/meta-qtas-demo.git
+git clone git@github.com:Luxoft/meta-qt-auto-internal.git
 
 META_PUSH=0
 
-pushd meta-qtas-demo
+pushd meta-qt-auto-internal
 git config user.email "nzamotaev@luxoft.com"
 git config user.name "TeamCity server"
 FILENAME="`find ./ -name neptune3-ui_git.bbappend;find ./ -name neptune3-ui_git.bb`"
@@ -24,7 +25,7 @@ if [ "x$3" != "x" ]; then
 fi
 T=`git diff`
 if [ "x$T" == "x" ];then
-    echo "No change to meta-qtas-demo"
+    echo "No change to meta-qt-auto-internal"
 else
     echo "Comitting changes"
     (   echo "Neptune3: Automatic update to the latest version of Neptune3-UI"
@@ -37,7 +38,7 @@ fi
 popd
 
 if [ "$META_PUSH" == "1" ]; then
-    pushd meta-qtas-demo
+    pushd meta-qt-auto-internal
     git push
     popd
 fi
