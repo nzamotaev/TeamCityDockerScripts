@@ -4,7 +4,7 @@
 set -e
 cd /opt/checkout
 git submodule foreach --recursive git reset --hard
-./init-repository -f --module-subset=default,-qtwebkit,-qtwebkit-examples,-qtwebengine,-qtdocgallery,-qtpim
+./init-repository -f --module-subset=default,qtwebkit,-qtwebkit-examples,qtwebengine,-qtdocgallery,-qtpim
 echo "##teamcity[buildNumber '`git describe --first-parent --abbrev=7`']"
 PLACE=`grep MODULE_VERSION qtbase/.qmake.conf | sed -e 's,^[^=]* = ,,'`
 if [ "x$PLACE" == "x" ]; then
