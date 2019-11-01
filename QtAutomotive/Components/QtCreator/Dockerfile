@@ -20,7 +20,6 @@ RUN apt-get update && \
     apt-get -y build-dep qt5-default && \
     apt-get install -y icecc ccache --no-install-recommends && \
     apt-get -y install \
-        flex flexc++ \
         libxcb-xinerama0-dev \
         '^libxcb.*-dev' libx11-xcb-dev libglu1-mesa-dev \
         libxrender-dev libxi-dev libssl-dev libxcursor-dev \
