@@ -33,7 +33,7 @@ else
         echo "Changes:"
         cd "$2"
         git log --pretty=format:"%h%x09%an%x09%ad%x09%s" ${OLDHASH}..${NEWHASH} 
-    ) | git commit -F - "$FILENAME"
+    ) | git commit -F - "$FILENAME" _branchers/neptune3-ui
     META_PUSH=1
 fi
 popd
