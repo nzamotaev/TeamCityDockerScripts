@@ -21,6 +21,7 @@ sed "s/SRCREV *= *\".*\"/SRCREV = \"$1\"/" -i "$FILENAME"
 if [ "x$3" != "x" ]; then
 #Branch switching for neptune3-ui.
     BRANCH=`echo $3|awk -F/ '{print $NF}'`
+    echo $BRANCH > _branches/neptune3-ui
     sed "s/\(SRC_URI *= *\"git:.*branch=\).*\(;user=\)/\1${BRANCH}\2/" -i "$FILENAME"
 fi
 T=`git diff`

@@ -18,6 +18,10 @@ OLDHASH=`grep SRCREV $FILENAME|awk -F= '{print $2}'|sed 's/^[ \"]*//;s/[\" ]*$//
 NEWHASH=$1
 
 sed "s/SRCREV *= *\".*\"/SRCREV = \"$1\"/" -i "$FILENAME"
+if [ "x$3" != "x" ]; then
+    BRANCH=`echo $3|awk -F/ '{print $NF}'`
+    echo $BRANCH > _branches/qtapplicationmanager
+fi
 T=`git diff`
 if [ "x$T" == "x" ];then
     echo "No change to meta-qt-auto-internal"
