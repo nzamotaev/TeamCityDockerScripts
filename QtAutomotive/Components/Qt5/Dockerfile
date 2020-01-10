@@ -10,7 +10,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends apt-utils
 RUN locale-gen en_US.UTF-8 
 ENV LANG en_US.UTF-8 
 ENV LANGUAGE en_US:en 
-ENV LC_ALL en_US.UTF-8 
+ENV LC_ALL en_US.UTF-8
+ENV CCACHE_DIR /.ccache
  
 RUN echo "exit 101" > /usr/sbin/policy-rc.d 
 RUN chmod +x /usr/sbin/policy-rc.d 

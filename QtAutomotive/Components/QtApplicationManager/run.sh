@@ -6,7 +6,8 @@ ImageName=qt5appman
 Build=`readlink -f $1`
 Checkout=`readlink -f $2`
 ScriptDir=`readlink -f \`pwd\``
-Volumes="-v ${Build}:/opt/build -v ${Checkout}:/opt/checkout -v ${ScriptDir}:/opt/scripts -v /var/run/icecc:/var/run/icecc"
+mkdir -p ${HOME}/.ccache1
+Volumes="-v ${Build}:/opt/build -v ${Checkout}:/opt/checkout -v ${ScriptDir}:/opt/scripts -v /var/run/icecc:/var/run/icecc -v ${HOME}/.ccache1:/.ccache"
 
 echo "##teamcity[blockOpened name='Building docker image']"
 docker build --pull=false -t $ImageName . 
