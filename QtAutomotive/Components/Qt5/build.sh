@@ -17,7 +17,7 @@ export CCACHE_PREFIX=icecc
 export PATH=/usr/lib/ccache:$PATH
 /opt/checkout/configure $2 -opensource -confirm-license \
         -nomake examples -nomake tests -opengl es2 \
-        -openssl-linked \
+        -openssl-linked -ccache \
         -prefix /opt/qt/auto/${PLACE}
 make -j 30
 make install INSTALL_ROOT=/opt/build/_install_ 
