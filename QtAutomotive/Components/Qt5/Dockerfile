@@ -1,4 +1,4 @@
-FROM ubuntu:xenial
+FROM ubuntu:bionic
 MAINTAINER Nikolay Zamotaev <nzamotaev@luxoft.com> 
 ENV DEBIAN_FRONTEND noninteractive
 
