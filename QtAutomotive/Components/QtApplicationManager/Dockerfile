@@ -33,7 +33,7 @@ RUN apt-get update && \
         cmake zlib1g-dev libdbus-glib-1-dev \
         git-core llvm-dev libclang-dev python2.7-dev python
 RUN chmod a+rwX /opt
-RUN apt-get update && apt-get -y install libtag1-dev python3-dev python3-virtualenv
+RUN apt-get update && apt-get -y install libtag1-dev python3-dev python3-virtualenv python3-jinja2
 COPY qt/qt.tar.gz /tmp/
 RUN tar xvf /tmp/qt.tar.gz -C /
 COPY dlt/dlt.tar.gz /tmp/
