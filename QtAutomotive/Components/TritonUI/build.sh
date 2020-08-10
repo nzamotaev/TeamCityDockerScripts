@@ -13,3 +13,4 @@ echo $QMAKE
 $QMAKE HERE_SDK=/opt/carlo_sdk/ ./neptune3-ui.pro
 make -j 5
 make install INSTALL_ROOT=/opt/build/_install_
+ccache -s|grep -v -e "directory" -e "config" -e "stats updated" -e "cache size" -e "max cache size"|sed 's/^/##teamcity[buildStatisticValue key="/;s/\([a-z()]\)   /\1"   /;s/    *\([0-9A-Za-z]\)/ value="\1/;s/$/"]/'
