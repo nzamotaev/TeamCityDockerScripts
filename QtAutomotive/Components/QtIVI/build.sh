@@ -22,4 +22,4 @@ export DISPLAY=:1
 make check-coverage TESTARGS="-o -,teamcity -o result.xml,xml"
 kill %1
 echo "##teamcity[blockClosed name='Check-coverage']"
-ccache -s|grep -v -e "directory" -e "config" -e "stats updated" -e "cache size" -e "max cache size"|sed 's/^/##teamcity[buildStatisticValue key="/;s/\([a-z()]\)   /\1"   /;s/    *\([0-9A-Za-z]\)/ value="\1/;s/$/"]/'
+ccache -s|grep -v -e "directory" -e "config" -e "stats updated" -e "cache size" -e "max cache size"|sed "s/^/##teamcity[buildStatisticValue key='/;s/\([a-z()]\)   /\1'   /;s/    *\([0-9A-Za-z]\)/ value='\1/;s/$/']/"
